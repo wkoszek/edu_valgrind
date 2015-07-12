@@ -15,7 +15,7 @@ env:
     DEPLOY_HOST=55a1cc835004460171000096@builds-koszek.rhcloud.com
     DEPLOY_LOCATION=app-root/runtime/repo/
     DEPLOY_KEY=6bcc3ab8dd25
-    DEPLOY_REPO=travis_deploy/valgrind_edu
+    DEPLOY_FILE=travis_deploy/valgrind_edu
 
 after_success:
 - git clone https://github.com/wkoszek/travis_deploy.git
