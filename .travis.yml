@@ -2,9 +2,10 @@ language: c
 compiler:
 - clang
 - gcc
-before_install:
-- sudo apt-get upgrade
-- sudo apt-get install valgrind
+addons:
+ apt:
+   packages:
+     - valgrind
 script:
 - make
 - make check
