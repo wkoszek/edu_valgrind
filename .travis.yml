@@ -18,5 +18,6 @@ env:
     DEPLOY_FILE=travis_deploy/valgrind_edu
 
 after_success:
+- make pack
 - git clone https://github.com/wkoszek/travis_deploy.git
-- ./travis_deploy/deploy.sh makefile
+- ./travis_deploy/deploy.sh /tmp/valgrind_edu.tar.bz2

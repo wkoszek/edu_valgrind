@@ -1,4 +1,5 @@
 # (c) 2015 Wojciech A. Koszek <wojciech@koszek.com>
+NAME=$(shell basename `pwd`)
 SRCS_ALL:=$(wildcard *.c)
 SRCS_EXCLUDED=
 SRCS=$(filter-out $(SRCS_EXCLUDED),$(SRCS_ALL))
@@ -20,6 +21,12 @@ suppression: $(SUPPRESSIONS)
 
 %.sup: %.prog
 	touch $@
+
+pack:
+	rm -rf /tmp/$(NAME)
+	mkdir /tmp/$(NAME)
+	cp -rf * /tmp/$(NAME)/
+	cd /tmp && tar cjf $(NAME).tar.bz2 $(NAME)
 
 clean:
 	rm -rf \
