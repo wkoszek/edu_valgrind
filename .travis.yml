@@ -19,5 +19,6 @@ env:
 
 after_success:
 - make pack
+- RELFILENAME=`make relfilename`
 - git clone https://github.com/wkoszek/travis_deploy.git
-- ./travis_deploy/deploy.sh /tmp/valgrind_edu.tar.bz2
+- ./travis_deploy/deploy.sh $(RELFILENAME)

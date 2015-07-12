@@ -1,6 +1,7 @@
 # (c) 2015 Wojciech A. Koszek <wojciech@koszek.com>
 NAME=$(shell basename `pwd`)
 RELNAME=$(NAME)-$(CC)
+TMPDIR=/tmp
 SRCS_ALL:=$(wildcard *.c)
 SRCS_EXCLUDED=
 SRCS=$(filter-out $(SRCS_EXCLUDED),$(SRCS_ALL))
@@ -23,15 +24,21 @@ suppression: $(SUPPRESSIONS)
 %.sup: %.prog
 	touch $@
 
+relfilename:
+	@echo $(TMPDIR)/$(RELNAME)
+
 pack:
-	rm -rf /tmp/$(RELNAME)
-	mkdir /tmp/$(RELNAME)
-	cp -rf * /tmp/$(RELNAME)/
-	cd /tmp && tar cjf $(RELNAME).tar.bz2 $(RELNAME)
+	rm -rf $(TMPDIR)/$(RELNAME)
+	mkdir $(TMPDIR)/$(RELNAME)
+	cp -rf * $(TMPDIR)/$(RELNAME)/
+	cd $(TMPDIR) && tar cjf $(RELNAME).tar.bz2 $(RELNAME)
 
 clean:
 	rm -rf \
 		*.prog		\
 		*.memcheck	\
-		*.dSYM
+		*.dSYM		\
+		$(TMPDIR)/$(RELNAME)		\
+		$(TMPDIR)/$(RELNAME).tar.bz2
+
 PHONY: %.memcheck
