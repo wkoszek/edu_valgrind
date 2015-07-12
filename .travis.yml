@@ -12,7 +12,7 @@ script:
 
 env:
   global:
-    DEPLOY_HOST=55a1cc835004460171000096@builds-koszek.rhcloud.com
+    DEPLOY_HOST=55a1cc835004460171000096@build.koszek.com
     DEPLOY_LOCATION=app-root/runtime/repo/
     DEPLOY_KEY=6bcc3ab8dd25
     DEPLOY_FILE=travis_deploy/valgrind_edu
