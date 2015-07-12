@@ -9,11 +9,23 @@ addons:
 script:
 - make
 - make check
-deploy:
-  provider: openshift
-  user: wojciech@koszek.com
-  password:
-    secure: T3HDTE7oaXCg/Yy34ksJZVlNRpn+MfwynSJ4RKaoBpoEfI0by7TRG314WMvnUMHM0tZsmdsOFmdD9zttQedx6e97dPxY4sYX0j8RWEyAWQvU14z5PjE2c7VggnZ/sVmvO2vN3gk+5nGwVyEMrHfCDEUNx1ZHcHKDge3z6QuHX+cuLpxYZ6kFs32IRaDcZ33et+gKfeSjcXooV5kUfPhN597ChmpFo8fs8glFON/vJxBxqQRl9VHzV2b0fXKNWvMHJ52K80NXp/O9ho5BkI47lEa8iT/DfsILgYisvV2si+PfTM2ud9GGJMMZtQzNnQ2DIIdMB3FgcxlSYG9iXZK0t4OAEh9eDE5STHc4Su9rDD8sX2AmceHIh43PnvXyljxRECnfpeD03JE7mslM95TuGM9irFehZL84TCeDWMX2gfHZtU5V18c3+oRaMrvBgi3XlOqJtv8j+trXdF971nJO7ffzkL/ddJ/VVBISYcLFCNS4XnzzhomDnO4zKIQMdRHEjAFBnX+mXmmz2IghXvrMyrJv773ylzP0bSakS1MvsQ3YdU8QgEoEaCYGt3VRZJPRugi5wNYpcgSLTapzWG6B1VQOQYGhlLBOYyfxf5z+aMBs82G3gxKvYa5HUvcBfziW2c7+rBHpA3gugZrkq1WPlTLtIqy97SrIK0f8qe2Lfm4=
-  app: builds
-  domain: koszek
-  skip_cleanup: true
+
+env:
+  global:
+    DEPLOY_HOST=55a1cc835004460171000096@builds-koszek.rhcloud.com
+    DEPLOY_LOCATION=app-root/runtime/repo/
+    DEPLOY_KEY=6bcc3ab8dd25
+    DEPLOY_REPO=valgrind_edu
+
+after_success:
+- git clone https://github.com/wkoszek/travis_deploy.git
+- ./travis_deploy/deploy.sh makefile
+
+#deploy:
+#  provider: openshift
+#  user: wojciech@koszek.com
+#  password:
+#    secure: T3HDTE7oaXCg/Yy34ksJZVlNRpn+MfwynSJ4RKaoBpoEfI0by7TRG314WMvnUMHM0tZsmdsOFmdD9zttQedx6e97dPxY4sYX0j8RWEyAWQvU14z5PjE2c7VggnZ/sVmvO2vN3gk+5nGwVyEMrHfCDEUNx1ZHcHKDge3z6QuHX+cuLpxYZ6kFs32IRaDcZ33et+gKfeSjcXooV5kUfPhN597ChmpFo8fs8glFON/vJxBxqQRl9VHzV2b0fXKNWvMHJ52K80NXp/O9ho5BkI47lEa8iT/DfsILgYisvV2si+PfTM2ud9GGJMMZtQzNnQ2DIIdMB3FgcxlSYG9iXZK0t4OAEh9eDE5STHc4Su9rDD8sX2AmceHIh43PnvXyljxRECnfpeD03JE7mslM95TuGM9irFehZL84TCeDWMX2gfHZtU5V18c3+oRaMrvBgi3XlOqJtv8j+trXdF971nJO7ffzkL/ddJ/VVBISYcLFCNS4XnzzhomDnO4zKIQMdRHEjAFBnX+mXmmz2IghXvrMyrJv773ylzP0bSakS1MvsQ3YdU8QgEoEaCYGt3VRZJPRugi5wNYpcgSLTapzWG6B1VQOQYGhlLBOYyfxf5z+aMBs82G3gxKvYa5HUvcBfziW2c7+rBHpA3gugZrkq1WPlTLtIqy97SrIK0f8qe2Lfm4=
+#  app: builds
+#  domain: koszek
+#  skip_cleanup: true
