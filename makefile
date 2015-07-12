@@ -25,7 +25,7 @@ suppression: $(SUPPRESSIONS)
 	touch $@
 
 relfilename:
-	@echo $(TMPDIR)/$(RELNAME)
+	@echo $(TMPDIR)/$(RELNAME).tar.bz2
 
 pack:
 	rm -rf $(TMPDIR)/$(RELNAME)
