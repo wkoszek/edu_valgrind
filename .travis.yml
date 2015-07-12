@@ -21,4 +21,4 @@ after_success:
 - make pack
 - RELFILENAME=`make relfilename`
 - git clone https://github.com/wkoszek/travis_deploy.git
-- ./travis_deploy/deploy.sh $(RELFILENAME)
+- ./travis_deploy/deploy.sh ${RELFILENAME}
