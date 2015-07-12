@@ -1,0 +1,16 @@
+language: c
+compiler:
+- clang
+- gcc
+script:
+- sudo apt-get install valgrind
+- make
+- make check
+deploy:
+  provider: openshift
+  user: wkoszek
+  password:
+    secure: ZOSyeFLO0N2mcpCmtT4lDxHe/z3Bt370V2otrqktUUjOnMRW7Ys5CLz6naOkKEh8yNJMrcGQr8gV92PKLTaJ6/kacaE/5d5wgo3oZm9HdkUOQLAjJRG9ito7+ixp0CWYykL/tVB0ESM4yVxMOMIGK8ByiW3gL+hPyRUh2OJHn0XruSVHOTuD3jF7kICz/XVr8tyc2UDKHHX0ZvPa3lZed9B/B9B4UFDWoAfBZ5XrOmRpGHVfufYEnBtO9BzwQdoFXVbCIzdGNOnpPqXR30RMbgxsLgVe3jsBm/p0gWrJ0+0MfJy4q2aKBZA+WjJhDt6HM7HFd4iIkNcUPsjOpfIpQB9HgrPFY1++KOmxQIacEkeDmABj8jDmr/gfrSYV7z0VHIYHTZC0w3/lxNlIX/GzPX998pemacY87orYF/+i+4HBpinutTiuyLeDbQ4HOhpPsWrCSlyKj+AWhXo+ypbrApmlAoGWgzSGbDcC5qISBpPDJB9AMdL4sCXN0VaDksjFF7IkA5mL9TIRkQfj2zZXbMvdI72v7Sc30QnR/+UHFvDDAwkKXcJMP+QY0bBw0DRSUpG6qiBFG2Gz8mvq8zqDEO5O5QIZYnh5+sQ9faWThLIUj7nxfVMiHbiBB6nZyv4mBs/itPi/3b8tn5Ix1hgs6Gw7Nd+YDwVSgDE+cg2C2cM=
+  app: builds
+  domain: builds-koszek.rhcloud.com
+  skip_cleanup: true
