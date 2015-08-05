@@ -7,8 +7,8 @@ addons:
     packages:
     - valgrind
 script:
-- valgrind --tool=cachegrind --log-file=empty.cachegrind.log --cachegrind-out-file=empty.cachegrind ./empty.prog
 - make
+- valgrind --tool=cachegrind --log-file=empty.cachegrind.log --cachegrind-out-file=empty.cachegrind ./empty.prog
 - make check
 
 env:
