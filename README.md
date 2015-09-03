@@ -51,3 +51,5 @@ generate suppressions without asking (`--gen-suppressions=all`), use not
 only default, but also additional suppression file (`--suppressions`) log
 output to the file (`--log-file`) and in case of memory problems, show
 exactly where they're coming from (`--track-origin`). 
+
+[![Analytics](https://ga-beacon.appspot.com/UA-67150227-1/wkoszek/valgrind_edu)](https://github.com/wkoszek/valgrind_edu)
