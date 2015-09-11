@@ -1,0 +1,17 @@
+machine:
+  ruby:
+    version:
+      2.2.2
+test:
+  post:
+    - make
+    - valgrind --tool=cachegrind --log-file=empty.cachegrind.log --cachegrind-out-file=empty.cachegrind ./empty.prog
+    - make check
+dependencies:
+  pre:
+    - sudo apt-get install valgrind
+
+general:
+  branches:
+    only:
+      - master
