@@ -53,3 +53,8 @@ output to the file (`--log-file`) and in case of memory problems, show
 exactly where they're coming from (`--track-origin`). 
 
 [![Analytics](https://ga-beacon.appspot.com/UA-67150227-1/wkoszek/valgrind_edu)](https://github.com/wkoszek/valgrind_edu)
+
+# Author
+
+- Wojciech Adam Koszek, [wojciech@koszek.com](mailto:wojciech@koszek.com)
+- [http://www.koszek.com](http://www.koszek.com)
