@@ -1,5 +1,7 @@
 # Valgrind HOWTO and Examples
 
+[![Build Status](https://travis-ci.org/wkoszek/valgrind_edu.svg?branch=master)](https://travis-ci.org/wkoszek/valgrind_edu)
+
 This repository contains several examples of Valgrind Memcheck
 usage. Everything is made for my own education, but you might
 find the examples and the infrastructure useful.
